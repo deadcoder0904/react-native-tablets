@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "React Native Tablets",
+    "slug": "react-native-tablets",
+    "sdkVersion": "26.0.0",
+    "privacy": "public",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#004284",
+    "icon": "./assets/icon.png",
+    "loading": {
+      "icon": "./assets/icon.png",
+      "backgroundColor": "#ffffff",
+      "hideExponentText": true
+    },
+    "androidShowExponentNotificationInShellApp": false,
+    "ios": {
+      "supportsTablet": true,
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.deadcoder0904.reactnativetablets",
+      "permissions": [],
+      "versionCode": 1
+    }
+  }
+}
