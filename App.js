@@ -12,7 +12,7 @@ import {
   StatusBar
 } from "react-native";
 import { Font } from "expo";
-import { ScaledSheet } from "react-native-size-matters";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 import { Chat } from "./src/Chat";
 import { addChat } from "./src/DB";
@@ -48,7 +48,6 @@ export default class App extends React.Component {
 
   render() {
     if (!this.state.fontLoaded) return null;
-    const styles = this.state.switch ? scaledStyles : regularStyles;
     return (
       <SafeAreaView style={styles.container}>
         <View>
@@ -89,27 +88,27 @@ export default class App extends React.Component {
   }
 }
 
-const scaledStyles = ScaledSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1
   },
   header: {
     textAlign: "center",
-    fontSize: "40@ms",
+    fontSize: hp("6.4%"),
     fontWeight: "900"
   },
   switchWrapper: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    margin: "20@vs"
+    margin: wp("5.4%")
   },
   text: {
     textAlign: "center",
-    fontSize: "20@ms",
+    fontSize: wp("5.4%"),
     fontWeight: "700",
     fontFamily: "Chalkboard SE",
-    padding: "10@ms"
+    padding: wp("2.7%")
   },
   inputContainer: {
     alignSelf: "stretch",
@@ -117,60 +116,15 @@ const scaledStyles = ScaledSheet.create({
   },
   input: {
     flex: 1,
-    fontSize: "16@ms",
-    margin: "5@vs",
-    borderWidth: 2,
+    margin: wp("1.35%"),
+    borderWidth: wp("0.55%"),
     borderColor: "#123",
-    paddingHorizontal: "3@vs"
+    paddingHorizontal: wp("0.8%")
   },
   btn: {
     alignSelf: "flex-end",
-    margin: "5@vs",
-    borderRadius: "5@ms0.3",
-    backgroundColor: "#FF1654"
-  },
-  btnColor: {
-    color: "white"
-  }
-});
-
-const regularStyles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  header: {
-    textAlign: "center",
-    fontSize: 40,
-    fontWeight: "900"
-  },
-  switchWrapper: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 20
-  },
-  text: {
-    textAlign: "center",
-    fontSize: 20,
-    fontWeight: "700",
-    fontFamily: "Chalkboard SE",
-    padding: 10
-  },
-  inputContainer: {
-    alignSelf: "stretch",
-    flexDirection: "row"
-  },
-  input: {
-    flex: 1,
-    margin: 5,
-    borderWidth: 2,
-    borderColor: "#123",
-    paddingHorizontal: 3
-  },
-  btn: {
-    alignSelf: "flex-end",
-    margin: 5,
-    borderRadius: 5,
+    margin: wp("1.35%"),
+    borderRadius: wp("1.35%"),
     backgroundColor: "#FF1654"
   },
   btnColor: {

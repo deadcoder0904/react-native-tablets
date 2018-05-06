@@ -1,14 +1,13 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Video } from "expo";
-import { ScaledSheet } from "react-native-size-matters";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 import { chats } from "./DB";
 import { YellowChat } from "./YellowChat";
 import { BlueChat } from "./BlueChat";
 
 export const Chat = ({ toggle }) => {
-  const styles = toggle ? scaledStyles : regularStyles;
   return chats.map(({ text, name, video }, i) => {
     if (video)
       return (
@@ -29,22 +28,12 @@ export const Chat = ({ toggle }) => {
   });
 };
 
-const scaledStyles = ScaledSheet.create({
+const styles = StyleSheet.create({
   flexEnd: {
     alignSelf: "flex-end"
   },
   video: {
-    width: "100%",
-    height: "250@vs"
-  }
-});
-
-const regularStyles = StyleSheet.create({
-  flexEnd: {
-    alignSelf: "flex-end"
-  },
-  video: {
-    width: "100%",
-    height: 250
+    width: "100%", // RN percentage is not always correct. We could change this as well to wp("100%")
+    height: hp("40%")
   }
 });
